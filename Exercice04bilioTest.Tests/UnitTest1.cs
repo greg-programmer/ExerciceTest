@@ -31,7 +31,7 @@ namespace Exercice04bilioTest.Tests
         {
             List<string> list = new List<string> { "Valence", "Vancouver" };
             City city = new City();
-            CollectionAssert.AreEqual(list, city.CitySearch("VA"));
+            CollectionAssert.AreEqual(list, city.CitySearch("vA"));
         }
     }
 }

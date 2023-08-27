@@ -23,10 +23,15 @@ namespace Exercice04biblio
             }
             if(searchText.Length >= 2)
             {
-
-                var a = CitysList.Where(a => a.Contains(searchText)).ToList();
+                string concat = "";
+                string firstLetterToUpper = searchText.ToUpper();
+                concat += firstLetterToUpper[0];
+                string searchTextToLower = searchText.ToLower().Substring(1);
+                concat += searchTextToLower; 
+                var a = CitysList.Where(a => a.Contains(concat)).ToList();
                 return a;
             }
+
               throw new NotImplementedException();                    
             
         }
