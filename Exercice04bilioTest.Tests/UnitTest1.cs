@@ -15,7 +15,6 @@ namespace Exercice04bilioTest.Tests
             City city = new City();                       
             Assert.ThrowsException<NotFoundException>(() => city.CitySearch("h") );
         }
-        // autre version si le cas de test était "est une liste qui ne contient que 0"   
         //Si le texte de recherche est égal ou supérieur à 2 caractères,
         //il doit renvoyer tous les noms de ville commençant par le texte de recherche exact.
         //Par exemple, pour le texte de recherche "Va", la fonction doit renvoyer Valence et Vancouver
@@ -25,6 +24,14 @@ namespace Exercice04bilioTest.Tests
             List<string> list = new List<string> {"Valence", "Vancouver" };
             City city = new City();
             CollectionAssert.AreEqual(list,city.CitySearch("Va"));
+        }
+        //La fonctionnalité de recherche doit être insensible à la casse
+        [TestMethod]
+        public void When_TextSearch_Case_Insensitive_Then_CitysList()
+        {
+            List<string> list = new List<string> { "Valence", "Vancouver" };
+            City city = new City();
+            CollectionAssert.AreEqual(list, city.CitySearch("VA"));
         }
     }
 }
