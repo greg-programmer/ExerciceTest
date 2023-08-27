@@ -9,14 +9,14 @@ namespace Exercice04bilioTest.Tests
     public class UnitTest1
     {
         [TestMethod]
-        //Si le texte de la recherche contient moins de 2 caractères, Une exception est levée de type NotFoundException.
+        //Si le texte de la recherche contient moins de 2 caractÃ¨res, Une exception est levÃ©e de type NotFoundException.
         public void When_TextSearch_Contains_LessThan2Chars_Then_NotFoundException()
         {
             City city = new City();                       
             Assert.ThrowsException<NotFoundException>(() => city.CitySearch("h") );
         }
-        //Si le texte de recherche est égal ou supérieur à 2 caractères,
-        //il doit renvoyer tous les noms de ville commençant par le texte de recherche exact.
+        //Si le texte de recherche est Ã©gal ou supÃ©rieur Ã  2 caractÃ¨res,
+        //il doit renvoyer tous les noms de ville commenÃ§ant par le texte de recherche exact.
         //Par exemple, pour le texte de recherche "Va", la fonction doit renvoyer Valence et Vancouver
         [TestMethod]
         public void When_TextSearch_Equal_Or_MoreThan2Chars_Then_CitysList()
@@ -25,7 +25,7 @@ namespace Exercice04bilioTest.Tests
             City city = new City();
             CollectionAssert.AreEqual(list,city.CitySearch("Va"));
         }
-        //La fonctionnalité de recherche doit être insensible à la casse
+        //La fonctionnalitÃ© de recherche doit Ãªtre insensible Ã  la casse
         [TestMethod]
         public void When_TextSearch_Case_Insensitive_Then_CitysList()
         {
