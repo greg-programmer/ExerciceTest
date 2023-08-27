@@ -42,12 +42,20 @@ namespace Exercice04bilioTest.Tests
             City city = new City();
             CollectionAssert.AreEqual(list, city.CitySearch("ap"));
         }
+        [TestMethod]
         //Si le texte de recherche est un « * » (astérisque), il doit renvoyer tous les noms de ville.
         public void When_TextSearch_Equal_Start_Then_CitysList()
         {
-            List<string> list = new List<string> { "Budapest" };
-            City city = new City();
-            CollectionAssert.AreEqual(list, city.CitySearch("ap"));
+        List<string> list = new List<string>
+        {
+            "Paris","Budapest","Skopje"," Rotterdam",
+            "Valence","Vancouver","Amsterdam","Vienne",
+            "Sydney","New York","Londres","Bangkok",
+            "Hong Kong", "Dubaï","Rome","Istanbul",
+            "Dunkerque"
+        };
+        City city = new City();
+        CollectionAssert.AreEqual(list,city.CitySearch("*"));
         }
     }
 }

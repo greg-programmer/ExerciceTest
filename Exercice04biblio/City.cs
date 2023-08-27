@@ -13,16 +13,15 @@ namespace Exercice04biblio
             "Sydney","New York","Londres","Bangkok",
             "Hong Kong", "Dubaï","Rome","Istanbul", 
             "Dunkerque"
-        }; 
-      
+        };       
 
         public List<string> CitySearch(string searchText)
         {
-            if(searchText.Length < 2)
+            if (searchText.Length < 2 && searchText != "*")
             {
-                throw new NotFoundException("erreur");
+                throw new NotFoundException("Erreur");
             }
-            if(searchText.Length >= 2)
+            else if(searchText.Length >= 2 && searchText != "*")
             {
                 string concat = "";
                 for (int i = 0; i < CitysList.Count; i++)
@@ -41,9 +40,12 @@ namespace Exercice04biblio
                     concat = "";
                 }
                 return result;
+            }         
+            if(searchText == "*")
+            {
+                return CitysList;
             }
-
-              throw new NotImplementedException();                    
+            throw new NotImplementedException();                    
             
         }
     }
