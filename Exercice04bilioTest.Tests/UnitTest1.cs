@@ -31,7 +31,16 @@ namespace Exercice04bilioTest.Tests
         {
             List<string> list = new List<string> { "Valence", "Vancouver" };
             City city = new City();
-            CollectionAssert.AreEqual(list, city.CitySearch("vA"));
+            CollectionAssert.AreEqual(list, city.CitySearch("Va"));
+        }
+        //La fonctionnalité de recherche devrait également fonctionner lorsque le texte de recherche n'est 
+        //    qu'une partie d'un nom de ville Par exemple "ape" devrait renvoyer la ville "Budapest"
+        [TestMethod]
+        public void When_TextSearch_Part_0f_The_CityName_Then_CitysList()
+        {
+            List<string> list = new List<string> { "Budapest" };
+            City city = new City();
+            CollectionAssert.AreEqual(list, city.CitySearch("ap"));
         }
     }
 }

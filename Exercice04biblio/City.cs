@@ -1,5 +1,6 @@
 ﻿using Exercice04bilioTest.Tests;
 using static System.Formats.Asn1.AsnWriter;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Exercice04biblio
 {
@@ -24,12 +25,22 @@ namespace Exercice04biblio
             if(searchText.Length >= 2)
             {
                 string concat = "";
-                string firstLetterToUpper = searchText.ToUpper();
-                concat += firstLetterToUpper[0];
-                string searchTextToLower = searchText.ToLower().Substring(1);
-                concat += searchTextToLower; 
-                var a = CitysList.Where(a => a.Contains(concat)).ToList();
-                return a;
+                for (int i = 0; i < CitysList.Count; i++)
+                {
+                    CitysList[i] = CitysList[i].ToLower();
+                }
+                var a = CitysList.Where(a => a.Contains(searchText.ToLower())).ToList();
+                List<string> result = new List<string>();
+                foreach (var item in a)
+                {
+                    string letter = item.ToUpper();
+                    concat += letter[0];
+                    string letters = item.Substring(1).ToLower();
+                    concat += letters;
+                    result.Add(concat);
+                    concat = "";
+                }
+                return result;
             }
 
               throw new NotImplementedException();                    
