@@ -23,25 +23,11 @@ namespace Exercice04biblio
             }
             else if(searchText.Length >= 2 && searchText != "*")
             {
-                string concat = "";
-                for (int i = 0; i < CitysList.Count; i++)
-                {
-                    CitysList[i] = CitysList[i].ToLower();
-                }
-                var a = CitysList.Where(a => a.Contains(searchText.ToLower())).ToList();
-                List<string> result = new List<string>();
-                foreach (var item in a)
-                {
-                    string letter = item.ToUpper();
-                    concat += letter[0];
-                    string letters = item.Substring(1).ToLower();
-                    concat += letters;
-                    result.Add(concat);
-                    concat = "";
-                }
-                return result;
+                var a = CitysList.Where(a => a.ToLower().Contains(searchText.ToLower())).ToList();
+                List<string> result = new List<string>();       
+                return a;
             }         
-            if(searchText == "*")
+            else if(searchText == "*")
             {
                 return CitysList;
             }

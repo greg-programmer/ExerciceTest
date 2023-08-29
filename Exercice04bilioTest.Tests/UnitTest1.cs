@@ -23,7 +23,7 @@ namespace Exercice04bilioTest.Tests
         {
             List<string> list = new List<string> {"Valence", "Vancouver" };
             City city = new City();
-            CollectionAssert.AreEqual(list,city.CitySearch("Va"));
+            CollectionAssert.AreEqual(list,city.CitySearch("VA"));
         }
         //La fonctionnalité de recherche doit être insensible à la casse
         [TestMethod]
